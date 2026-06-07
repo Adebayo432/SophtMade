@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shop all football jerseys at SophtMade. Filter by club, version, and kit type." />
+  <title>Shop | SophtMade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/shop.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="page--shop">
+
+  <header class="navbar navbar--light" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <img src="images/logo/logo-white.png" alt="SophtMade" class="navbar__logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="navbar__logo-text">SophtMade</span>
+      </a>
+      <nav class="navbar__nav" id="navMenu" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="shop.html" class="navbar__link navbar__link--active">Shop</a>
+        <a href="cart.html" class="navbar__link">Cart</a>
+        <a href="contact.html" class="navbar__link">Contact</a>
+      </nav>
+      <div class="navbar__actions">
+        <a href="cart.html" class="navbar__cart" aria-label="View cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="navbar__cart-count" id="cartCount">0</span>
+        </a>
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="shop-page">
+
+    <!-- SHOP HEADER -->
+    <div class="shop-page__header">
+      <div class="container">
+        <h1 class="shop-page__title">All jerseys</h1>
+        <p class="shop-page__subtitle">Fan &amp; Player editions · Club &amp; National teams</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="shop-layout">
+
+        <!-- SIDEBAR FILTERS -->
+        <aside class="shop-sidebar" id="shopSidebar" aria-label="Product filters">
+
+          <div class="shop-sidebar__header">
+            <h2 class="shop-sidebar__title">Filters</h2>
+            <button class="shop-sidebar__clear" id="clearFilters" aria-label="Clear all filters">Clear all</button>
+          </div>
+
+          <!-- Search -->
+          <div class="filter-group">
+            <label class="filter-group__label" for="searchInput">Search</label>
+            <div class="search-wrap">
+              <svg class="search-wrap__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="search" class="search-wrap__input" id="searchInput" placeholder="Search jerseys..." aria-label="Search jerseys" />
+            </div>
+          </div>
+
+          <!-- Category -->
+          <div class="filter-group">
+            <h3 class="filter-group__label">Category</h3>
+            <label class="filter-check"><input type="checkbox" name="category" value="club" /> <span>Club jerseys</span></label>
+            <label class="filter-check"><input type="checkbox" name="category" value="national" /> <span>National teams</span></label>
+          </div>
+
+          <!-- Version -->
+          <div class="filter-group">
+            <h3 class="filter-group__label">Version</h3>
+            <label class="filter-check"><input type="checkbox" name="version" value="fan" /> <span>Fan version</span></label>
+            <label class="filter-check"><input type="checkbox" name="version" value="player" /> <span>Player version</span></label>
+          </div>
+
+          <!-- Kit Type -->
+          <div class="filter-group">
+            <h3 class="filter-group__label">Kit type</h3>
+            <label class="filter-check"><input type="checkbox" name="kit" value="home" /> <span>Home kit</span></label>
+            <label class="filter-check"><input type="checkbox" name="kit" value="away" /> <span>Away kit</span></label>
+          </div>
+
+          <!-- Club -->
+          <div class="filter-group" id="clubFilterGroup">
+            <h3 class="filter-group__label">Club</h3>
+            <div id="clubFilters">
+              <!-- Injected dynamically from products.js -->
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <div class="shop-main">
+
+          <!-- Active filters + result count -->
+          <div class="shop-main__bar">
+            <p class="shop-main__count"><span id="productCount">0</span> jerseys</p>
+            <div class="shop-main__active-filters" id="activeFilters" aria-live="polite"></div>
+            <!-- Mobile filter toggle -->
+            <button class="btn-filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="shopSidebar">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>
+              Filters
+            </button>
+          </div>
+
+          <!-- Product Grid -->
+          <div class="product-grid" id="shopGrid" aria-live="polite" aria-label="Product results">
+            <!-- Injected by shop.js -->
+          </div>
+
+          <!-- Empty state -->
+          <div class="shop-empty" id="shopEmpty" hidden>
+            <svg width="48" height="48" viewBox="0 0 60 80" fill="none" aria-hidden="true"><path d="M15 5 L5 20 L15 25 L15 70 L45 70 L45 25 L55 20 L45 5 L38 10 Q30 14 22 10 Z" stroke="#ccc" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
+            <p class="shop-empty__title">No jerseys found</p>
+            <p class="shop-empty__desc">Try adjusting your filters or search term.</p>
+            <button class="btn btn--primary" id="resetSearch">Clear filters</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">SophtMade</a>
+          <p class="footer__tagline">Premium football jerseys.<br />Delivered across Nigeria.</p>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Quick links</h4>
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="shop.html" class="footer__link">Shop</a>
+          <a href="cart.html" class="footer__link">Cart</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Collections</h4>
+          <a href="shop.html?filter=club" class="footer__link">Club jerseys</a>
+          <a href="shop.html?filter=national" class="footer__link">National teams</a>
+          <a href="shop.html?filter=fan" class="footer__link">Fan edition</a>
+          <a href="shop.html?filter=player" class="footer__link">Player edition</a>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Support</h4>
+          <a href="contact.html" class="footer__link">Contact us</a>
+          <a href="contact.html#faq" class="footer__link">FAQ</a>
+          <a href="contact.html#delivery" class="footer__link">Delivery info</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 SophtMade. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalProductName" hidden>
+    <div class="modal">
+      <button class="modal__close" id="modalClose" aria-label="Close product detail">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal__inner">
+        <div class="modal__image-wrap">
+          <img src="" alt="" class="modal__image" id="modalImage" />
+          <div class="modal__image-placeholder" id="modalImagePlaceholder" aria-hidden="true">
+            <svg width="60" height="80" viewBox="0 0 60 80" fill="none"><path d="M15 5 L5 20 L15 25 L15 70 L45 70 L45 25 L55 20 L45 5 L38 10 Q30 14 22 10 Z" stroke="#F7A500" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="modal__badges">
+            <span class="badge" id="modalVersionBadge"></span>
+            <span class="badge badge--secondary" id="modalKitBadge"></span>
+          </div>
+        </div>
+        <div class="modal__details">
+          <p class="modal__category" id="modalCategory"></p>
+          <h2 class="modal__name" id="modalProductName"></h2>
+          <div class="modal__stars" id="modalStars"></div>
+          <p class="modal__price" id="modalPrice"></p>
+          <p class="modal__desc" id="modalDesc"></p>
+          <div class="modal__size-section">
+            <div class="modal__size-header">
+              <label class="modal__size-label">Select size</label>
+              <span class="modal__size-selected" id="modalSizeSelected">— choose one</span>
+            </div>
+            <div class="modal__size-options" id="modalSizeOptions" role="group" aria-label="Available sizes"></div>
+          </div>
+          <button class="btn btn--primary btn--full" id="modalAddToCart" disabled>Select a size to add to cart</button>
+          <p class="modal__delivery-note">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Nationwide delivery · Arranged via WhatsApp
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://wa.me/2348108116903" class="wa-bubble" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/shop.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>
