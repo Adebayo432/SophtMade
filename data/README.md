@@ -127,15 +127,17 @@ If your logo has not loaded, the text "SophtMade" will show as a fallback automa
 
 ## How to Change Your WhatsApp Number
 
-Your number appears in **3 places**. Search and replace `2348108116903` with your full number (country code, no spaces, no +):
+Your number appears in **multiple places**. Search and replace `08136358095` with your full number (country code, no spaces, no +):
 
-| File             | What to change                      |
-| ---------------- | ----------------------------------- |
-| `js/checkout.js` | `const WA_NUMBER = '2348108116903'` |
-| `index.html`     | All `wa.me/2348108116903` links     |
-| `contact.html`   | All `wa.me/2348108116903` links     |
+| File             | What to change                    |
+| ---------------- | --------------------------------- |
+| `js/checkout.js` | `const WA_NUMBER = '08136358095'` |
+| `index.html`     | All `wa.me/08136358095` links     |
+| `contact.html`   | All `wa.me/08136358095` links     |
+| `shop.html`      | All `wa.me/08136358095` links     |
+| `cart.html`      | All `wa.me/08136358095` links     |
 
-The format must be: country code + number, e.g. `2348012345678`
+The format must be: local or country code number, e.g. `08136358095` or `2348136358095`
 
 ---
 

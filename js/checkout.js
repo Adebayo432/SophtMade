@@ -5,15 +5,25 @@
 
 const Checkout = (() => {
 
-  const WA_NUMBER = '2348108116903';
+  const WA_NUMBER = '08136358095';
 
-  /* ── Build message ──────────────────────────── */
-  function buildMessage(cartItems, total) {
+  function buildMessageWithDelivery(cartItems, total, delivery) {
     const lines = [];
 
     lines.push('🛒 *NEW ORDER — SophtMade*');
-    lines.push('─────────────────────────');
+    lines.push('═════════════════════════════════');
     lines.push('');
+    lines.push('*👤 CUSTOMER DETAILS*');
+    lines.push(`   • Name: ${delivery.fullName}`);
+    lines.push(`   • Phone: ${delivery.phone}`);
+    lines.push(`   • Address: ${delivery.address}`);
+    lines.push(`   • City/State: ${delivery.cityState}`);
+    if (delivery.notes.trim()) {
+      lines.push(`   • Notes: ${delivery.notes}`);
+    }
+    lines.push('');
+    lines.push('*📦 ORDER ITEMS*');
+    lines.push('─────────────────────────────────');
 
     cartItems.forEach((item, i) => {
       lines.push(`*${i + 1}. ${item.name}*`);
@@ -21,48 +31,68 @@ const Checkout = (() => {
       lines.push(`   • Kit: ${capitalize(item.kit)} kit`);
       lines.push(`   • Size: ${item.size}`);
       lines.push(`   • Qty: ${item.qty}`);
-      lines.push(`   • Price: ${formatPrice(item.price * item.qty)}`);
+      lines.push(`   • Subtotal: ${formatPrice(item.price * item.qty)}`);
+      if (item.image) {
+        lines.push(`   • Image: ${item.image}`);
+      }
       lines.push('');
     });
 
-    lines.push('─────────────────────────');
-    lines.push(`*TOTAL: ${formatPrice(total)}*`);
+    lines.push('═════════════════════════════════');
+    lines.push(`*💰 ORDER TOTAL: ${formatPrice(total)}*`);
     lines.push('_(Delivery fee to be confirmed)_');
     lines.push('');
-    lines.push('Please confirm availability and provide delivery details. Thank you! 🙏');
+    lines.push('✅ Please confirm availability and payment method.');
+    lines.push('Thank you for shopping at SophtMade! 🙏');
 
     return lines.join('\n');
   }
 
-  /* ── Open WhatsApp ──────────────────────────── */
   function openWhatsApp(message) {
     const encoded = encodeURIComponent(message);
-    const url     = `https://wa.me/${WA_NUMBER}?text=${encoded}`;
+    const url = `https://wa.me/${WA_NUMBER}?text=${encoded}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   }
 
-  /* ── Checkout handler ───────────────────────── */
-  function handleCheckout() {
+  function getDeliveryDetails() {
+    const fullName = document.getElementById('deliveryName')?.value.trim();
+    const phone = document.getElementById('deliveryPhone')?.value.trim();
+    const address = document.getElementById('deliveryAddress')?.value.trim();
+    const cityState = document.getElementById('deliveryCity')?.value.trim();
+    const notes = document.getElementById('deliveryNotes')?.value.trim() || '';
+
+    if (!fullName || !phone || !address || !cityState) {
+      Cart.showToast('Please fill in all delivery details', 'error');
+      return null;
+    }
+
+    return { fullName, phone, address, cityState, notes };
+  }
+
+  function handleCheckoutWithForm() {
     if (Cart.isEmpty()) {
       Cart.showToast('Your cart is empty!', 'error');
       return;
     }
 
-    const items   = Cart.getAll();
-    const total   = Cart.getTotal();
-    const message = buildMessage(items, total);
+    const delivery = getDeliveryDetails();
+    if (!delivery) return;
+
+    const items = Cart.getAll();
+    const total = Cart.getTotal();
+    const message = buildMessageWithDelivery(items, total, delivery);
+
     openWhatsApp(message);
   }
 
-  /* ── Init ───────────────────────────────────── */
   function init() {
-    const btn = document.getElementById('whatsappCheckout');
-    if (btn) {
-      btn.addEventListener('click', handleCheckout);
+    const formBtn = document.getElementById('checkoutWithForm');
+    if (formBtn) {
+      formBtn.addEventListener('click', handleCheckoutWithForm);
     }
   }
 
-  return { init, handleCheckout };
+  return { init, handleCheckoutWithForm, getDeliveryDetails };
 })();
 
 document.addEventListener('DOMContentLoaded', () => Checkout.init());
