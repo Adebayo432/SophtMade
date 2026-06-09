@@ -95,7 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'none';
           observer.unobserve(entry.target);
         }
       });
@@ -110,20 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
       el.style.transition = `opacity .5s var(--ease-out) ${(i % 4) * 0.07}s, transform .5s var(--ease-out) ${(i % 4) * 0.07}s`;
       observer.observe(el);
     });
-
-    document.addEventListener('css-ready', () => {
-      document.querySelectorAll('.in-view').forEach(el => {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-      });
-    });
   }
-
-  // Apply in-view styles
-  document.querySelectorAll('.in-view').forEach(el => {
-    el.style.opacity = '1';
-    el.style.transform = 'none';
-  });
 
   // MutationObserver to catch dynamically added cards
   const gridObserver = new MutationObserver(() => {
@@ -155,18 +143,4 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
-
-  /* ── INTERSECTION for in-view class ─────────── */
-  if ('IntersectionObserver' in window) {
-    const viewObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'none';
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('[style*="opacity: 0"]').forEach(el => viewObserver.observe(el));
-  }
 });

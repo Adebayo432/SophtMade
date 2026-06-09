@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Shop all football jerseys at SophtMade. Filter by club, version, and kit type." />
   <title>Shop | SophtMade</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -78,13 +78,6 @@
             <label class="filter-check"><input type="checkbox" name="category" value="national" /> <span>National teams</span></label>
           </div>
 
-          <!-- Version -->
-          <div class="filter-group">
-            <h3 class="filter-group__label">Version</h3>
-            <label class="filter-check"><input type="checkbox" name="version" value="fan" /> <span>Fan version</span></label>
-            <label class="filter-check"><input type="checkbox" name="version" value="player" /> <span>Player version</span></label>
-          </div>
-
           <!-- Kit Type -->
           <div class="filter-group">
             <h3 class="filter-group__label">Kit type</h3>
@@ -93,7 +86,7 @@
           </div>
 
           <!-- Club -->
-          <div class="filter-group" id="clubFilterGroup">
+          <div class="filter-group">
             <h3 class="filter-group__label">Club</h3>
             <div id="clubFilters">
               <!-- Injected dynamically from products.js -->
@@ -152,8 +145,7 @@
           <h4 class="footer__col-title">Collections</h4>
           <a href="shop.html?filter=club" class="footer__link">Club jerseys</a>
           <a href="shop.html?filter=national" class="footer__link">National teams</a>
-          <a href="shop.html?filter=fan" class="footer__link">Fan edition</a>
-          <a href="shop.html?filter=player" class="footer__link">Player edition</a>
+          <a href="shop.html" class="footer__link">Shop jerseys</a>
         </div>
         <div class="footer__col">
           <h4 class="footer__col-title">Support</h4>
@@ -198,7 +190,15 @@
             </div>
             <div class="modal__size-options" id="modalSizeOptions" role="group" aria-label="Available sizes"></div>
           </div>
-          <button class="btn btn--primary btn--full" id="modalAddToCart" disabled>Select a size to add to cart</button>
+          <div class="modal__version-section">
+            <div class="modal__version-header">
+              <label class="modal__version-label">Select version</label>
+              <span class="modal__version-selected" id="modalVersionSelected">— choose one</span>
+              <button class="btn btn--secondary btn--sm" id="modalSelectVersion">Select Version</button>
+            </div>
+            <div class="modal__version-options" id="modalVersionOptions" role="group" aria-label="Version options"></div>
+          </div>
+          <button type="button" class="btn btn--primary btn--full" id="modalAddToCart" disabled>Select a size and version to add to cart</button>
           <p class="modal__delivery-note">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
             Nationwide delivery · Arranged via WhatsApp

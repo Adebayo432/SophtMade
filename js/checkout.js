@@ -32,9 +32,6 @@ const Checkout = (() => {
       lines.push(`   • Size: ${item.size}`);
       lines.push(`   • Qty: ${item.qty}`);
       lines.push(`   • Subtotal: ${formatPrice(item.price * item.qty)}`);
-      if (item.image) {
-        lines.push(`   • Image: ${item.image}`);
-      }
       lines.push('');
     });
 
@@ -92,7 +89,7 @@ const Checkout = (() => {
     }
   }
 
-  return { init, handleCheckoutWithForm, getDeliveryDetails };
+  return { init };
 })();
 
 document.addEventListener('DOMContentLoaded', () => Checkout.init());

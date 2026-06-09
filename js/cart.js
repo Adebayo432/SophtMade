@@ -19,13 +19,23 @@ const Cart = (() => {
     syncAllCounters();
   }
 
+  function getProductImage(productId) {
+    const product = PRODUCTS.find(p => p.id === Number(productId));
+    if (!product) return null;
+    return product.image || (typeof getClubImage === 'function' ? getClubImage(product.club, product.kit) : null);
+  }
+
   /* ── CRUD ───────────────────────────────────── */
 
-  /** Add a product. If same product+size exists, bump qty. */
-  function add(product, size, qty = 1) {
+  /** Add a product. If same product+size+version exists, bump qty. */
+  function add(product, size, qty = 1, versionOverride = null, priceOverride = null) {
     if (!size) { showToast('Please select a size first', 'error'); return false; }
 
-    const key = `${product.id}-${size}`;
+    const version = versionOverride || product.version;
+    if (!version) { showToast('Please select a version first', 'error'); return false; }
+    const price = priceOverride || product.price;
+
+    const key = `${product.id}-${size}-${version}`;
     const existing = items.find(i => i.key === key);
 
     if (existing) {
@@ -36,10 +46,9 @@ const Cart = (() => {
         productId: product.id,
         name: product.name,
         club: product.club,
-        version: product.version,
+        version: version,
         kit: product.kit,
-        price: product.price,
-        image: product.image,
+        price: price,
         size,
         qty
       });
@@ -68,7 +77,7 @@ const Cart = (() => {
     const item = items.find(i => i.key === key);
     if (!item) return;
 
-    const newKey = `${item.productId}-${newSize}`;
+    const newKey = `${item.productId}-${newSize}-${item.version}`;
     // If new size already in cart, merge
     const exists = items.find(i => i.key === newKey && i.key !== key);
     if (exists) {
@@ -121,13 +130,13 @@ const Cart = (() => {
     const countEl   = document.getElementById('cartPageCount');
     const subtotalEl = document.getElementById('summarySubtotal');
     const totalEl   = document.getElementById('summaryTotal');
-
+  
     if (!itemsEl) return; // Not on cart page
-
+  
     const cartItems = getAll();
     const total     = getTotal();
     const count     = getCount();
-
+  
     // Toggle empty vs filled
     if (isEmpty()) {
       if (emptyEl)  emptyEl.hidden  = false;
@@ -144,20 +153,21 @@ const Cart = (() => {
 
     const SIZES = ['S','M','L','XL','XXL'];
 
-    itemsEl.innerHTML = cartItems.map(item => `
+    itemsEl.innerHTML = cartItems.map(item => {
+      const imageUrl = getProductImage(item.productId);
+      const sizeButtons = SIZES.map(s => `
+        <button class="cart-size-btn ${s === item.size ? 'active' : ''}"
+          data-key="${item.key}" data-size="${s}"
+          aria-label="Size ${s}" aria-pressed="${s === item.size}">
+          ${s}
+        </button>
+      `).join('');
+
+      return `
       <article class="cart-item" data-key="${item.key}">
         <div class="cart-item__thumb">
-          ${item.image
-            ? `<img src="${item.image}" alt="${item.name}" loading="lazy"
-                style="opacity:0;transition:opacity .3s;width:100%;height:100%;object-fit:cover"
-                onload="this.style.opacity='1';this.nextElementSibling.style.display='none'"
-                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-            : ''}
-          <div class="cart-item__thumb-placeholder">
-            <svg width="32" height="40" viewBox="0 0 60 80" fill="none"><path d="M15 5 L5 20 L15 25 L15 70 L45 70 L45 25 L55 20 L45 5 L38 10 Q30 14 22 10 Z" stroke="#ccc" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
-          </div>
+          ${imageUrl ? `<img src="${imageUrl}" alt="${item.name}" loading="lazy">` : `<div class="cart-item__thumb-placeholder">No image</div>`}
         </div>
-
         <div class="cart-item__info">
           <div class="cart-item__badges">
             <span class="badge badge--${item.version}">${capitalize(item.version)} edition</span>
@@ -168,13 +178,7 @@ const Cart = (() => {
           <div class="cart-item__size-row">
             <span class="cart-item__size-label">Size:</span>
             <div class="cart-item__sizes" role="group" aria-label="Select size">
-              ${SIZES.map(s => `
-                <button class="cart-size-btn ${s === item.size ? 'active' : ''}"
-                  data-key="${item.key}" data-size="${s}"
-                  aria-label="Size ${s}" aria-pressed="${s === item.size}">
-                  ${s}
-                </button>
-              `).join('')}
+              ${sizeButtons}
             </div>
           </div>
 
@@ -198,7 +202,8 @@ const Cart = (() => {
           </button>
         </div>
       </article>
-    `).join('');
+    `;
+    }).join('');
 
     // Attach events
     itemsEl.querySelectorAll('.cart-item__remove').forEach(btn => {
@@ -242,10 +247,5 @@ const Cart = (() => {
 
   return { add, remove, updateQty, updateSize, clear, getAll, getCount, getTotal, isEmpty, renderCartPage, showToast, init };
 })();
-
-/* ── Helper ─────────────────────────────────── */
-function capitalize(str) {
-  return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
-}
 
 document.addEventListener('DOMContentLoaded', () => Cart.init());

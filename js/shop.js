@@ -8,13 +8,11 @@ const Shop = (() => {
   let activeFilters = {
     search:   '',
     category: [],   // 'club' | 'national'
-    version:  [],   // 'fan' | 'player'
     kit:      [],   // 'home' | 'away'
     club:     []    // club names
   };
 
   /* ── Elements ───────────────────────────────── */
-  const grid    = () => document.getElementById('shopGrid') || document.getElementById('featuredGrid');
   const countEl = () => document.getElementById('productCount');
   const emptyEl = () => document.getElementById('shopEmpty');
 
@@ -27,7 +25,6 @@ const Shop = (() => {
                !p.category.toLowerCase().includes(q)) return false;
 
       if (activeFilters.category.length && !activeFilters.category.includes(p.category)) return false;
-      if (activeFilters.version.length  && !activeFilters.version.includes(p.version))   return false;
       if (activeFilters.kit.length      && !activeFilters.kit.includes(p.kit))            return false;
       if (activeFilters.club.length     && !activeFilters.club.includes(p.club))          return false;
       return true;
@@ -36,8 +33,9 @@ const Shop = (() => {
 
   /* ── Render product card HTML ────────────────── */
   function cardHTML(product) {
-    const imgHTML = product.image
-      ? `<img class="product-card__img" src="${product.image}" alt="${product.name}" loading="lazy">`
+    const imgSrc = product.image || (typeof getClubImage === 'function' ? getClubImage(product.club, product.kit) : null);
+    const imgHTML = imgSrc
+      ? `<img class="product-card__img" src="${imgSrc}" alt="${product.name}" loading="lazy">`
       : `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%">
            <svg width="48" height="62" viewBox="0 0 60 80" fill="none">
              <path d="M15 5 L5 20 L15 25 L15 70 L45 70 L45 25 L55 20 L45 5 L38 10 Q30 14 22 10 Z"
@@ -53,7 +51,6 @@ const Shop = (() => {
             ${imgHTML}
           </div>
           <div class="product-card__badges">
-            <span class="badge badge--${product.version}">${capitalize(product.version)}</span>
             <span class="badge badge--secondary">${capitalize(product.kit)}</span>
           </div>
         </div>
@@ -148,7 +145,6 @@ const Shop = (() => {
       chips.push({ label: `"${activeFilters.search}"`, type: 'search', value: '' });
     }
     activeFilters.category.forEach(v => chips.push({ label: capitalize(v), type: 'category', value: v }));
-    activeFilters.version.forEach(v  => chips.push({ label: capitalize(v) + ' edition', type: 'version', value: v }));
     activeFilters.kit.forEach(v      => chips.push({ label: capitalize(v) + ' kit', type: 'kit', value: v }));
     activeFilters.club.forEach(v     => chips.push({ label: v, type: 'club', value: v }));
 
@@ -229,7 +225,7 @@ const Shop = (() => {
   }
 
   function clearAll() {
-    activeFilters = { search: '', category: [], version: [], kit: [], club: [] };
+    activeFilters = { search: '', category: [], kit: [], club: [] };
     document.querySelectorAll('.filter-check input[type="checkbox"]').forEach(cb => {
       cb.checked = false;
     });
@@ -247,9 +243,7 @@ const Shop = (() => {
 
     const map = {
       club:     () => { activeFilters.category = ['club'];     setCheckbox('category','club'); },
-      national: () => { activeFilters.category = ['national']; setCheckbox('category','national'); },
-      fan:      () => { activeFilters.version  = ['fan'];      setCheckbox('version','fan'); },
-      player:   () => { activeFilters.version  = ['player'];   setCheckbox('version','player'); }
+      national: () => { activeFilters.category = ['national']; setCheckbox('category','national'); }
     };
     if (map[filter]) map[filter]();
   }
@@ -265,20 +259,29 @@ const Shop = (() => {
     const sidebar   = document.getElementById('shopSidebar');
     if (!toggleBtn || !sidebar) return;
 
-    toggleBtn.addEventListener('click', () => {
-      const isOpen = sidebar.classList.toggle('open');
+    function setFiltersOpen(isOpen) {
+      sidebar.classList.toggle('open', isOpen);
+      document.body.classList.toggle('shop-filters-open', isOpen);
       toggleBtn.setAttribute('aria-expanded', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setFiltersOpen(!sidebar.classList.contains('open'));
     });
 
-    // Close sidebar when clicking outside it
     document.addEventListener('click', e => {
       if (sidebar.classList.contains('open') &&
           !sidebar.contains(e.target) &&
           !toggleBtn.contains(e.target)) {
-        sidebar.classList.remove('open');
-        toggleBtn.setAttribute('aria-expanded', false);
-        document.body.style.overflow = '';
+        setFiltersOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+        setFiltersOpen(false);
       }
     });
   }
@@ -298,7 +301,7 @@ const Shop = (() => {
     }
   }
 
-  return { init, render, filteredProducts };
+  return { init };
 })();
 
 /* ── Debounce helper ────────────────────────── */
