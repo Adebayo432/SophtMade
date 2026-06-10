@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /debug.html
+Disallow: /check.html
+
+Sitemap: https://sophtmadejersey.store/sitemap.xml

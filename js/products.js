@@ -1,6 +1,5 @@
 /* ═══════════════════════════════════════════════
    SOPHTMADE — PRODUCT DATA
-   One entry per club + kit (fan/player chosen in modal)
 ═══════════════════════════════════════════════ */
 
 const PRODUCTS = [
@@ -11,21 +10,15 @@ const PRODUCTS = [
     category: "club",
     kit: "home",
     price: 20000,
-    description: "The iconic red of Old Trafford. This Fan version home kit features Manchester United's classic crest and bold red colourway. Breathable polyester fabric, perfect for matchdays and everyday wear.",
+    description: "The iconic red home kit of Manchester United from Old Trafford. Fan edition designed for comfort, everyday wear, and matchday support.",
     image: "images/jerseys/man-utd-home-fan.jpg",
     rating: 5,
     reviewCount: 14,
     sizes: ["S","M","L","XL","XXL"],
     featured: true,
     versions: {
-      "fan": {
-        "price": 20000,
-        "description": "The iconic red of Old Trafford. This Fan version home kit features Manchester United's classic crest and bold red colourway. Breathable polyester fabric, perfect for matchdays and everyday wear."
-      },
-      "player": {
-        "price": 25000,
-        "description": "The authentic Player edition of Man United's home kit. Same high-performance fabric worn by the players — lightweight, quick-dry, and tailored fit."
-      }
+      fan: { price: 20000, description: "Comfortable fan version of Manchester United's home kit, built for casual wear and matchday support." },
+      player: { price: 25000, description: "Authentic player edition Manchester United home kit with lightweight, performance-fit material used by professionals." }
     }
   },
   {
@@ -35,17 +28,15 @@ const PRODUCTS = [
     category: "club",
     kit: "away",
     price: 20000,
-    description: "United's away strip in a fresh colourway. Fan edition — ideal for away days and casual wear. Features the club crest and sponsor badge.",
+    description: "Manchester United away kit featuring a clean, modern design made for away fixtures and supporter wear.",
     image: "images/jerseys/man-utd-away-fan.jpg",
     rating: 4,
     reviewCount: 6,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "fan": {
-        "price": 20000,
-        "description": "United's away strip in a fresh colourway. Fan edition — ideal for away days and casual wear. Features the club crest and sponsor badge."
-      }
+      fan: { price: 20000, description: "Fan version of Manchester United away kit for casual and supporter wear." },
+      player: { price: 25000, description: "Player edition Manchester United away kit with match-level performance fabric." }
     }
   },
   {
@@ -54,18 +45,16 @@ const PRODUCTS = [
     club: "Real Madrid",
     category: "club",
     kit: "away",
-    price: 25000,
-    description: "Los Blancos' Player edition away kit. The same jersey worn by the first team — advanced Dri-Fit technology, precision-cut, with the iconic Real Madrid crest.",
+    price: 20000,
+    description: "Real Madrid away kit designed for elite away performances, featuring a modern and stylish club design.",
     image: "images/jerseys/real-madrid-away-player.jpg",
     rating: 5,
     reviewCount: 22,
     sizes: ["S","M","L","XL","XXL"],
     featured: true,
     versions: {
-      "player": {
-        "price": 25000,
-        "description": "Los Blancos' Player edition away kit. The same jersey worn by the first team — advanced Dri-Fit technology, precision-cut, with the iconic Real Madrid crest."
-      }
+      fan: { price: 20000, description: "Fan edition Real Madrid away jersey for supporters." },
+      player: { price: 25000, description: "Authentic Real Madrid player edition away kit with elite performance materials." }
     }
   },
   {
@@ -75,17 +64,15 @@ const PRODUCTS = [
     category: "club",
     kit: "home",
     price: 20000,
-    description: "The classic white of the Bernabeu. Fan edition of Real Madrid's home kit — clean, premium design with the golden badge.",
+    description: "The classic white Real Madrid home kit representing tradition, success, and the legacy of the Bernabéu.",
     image: "images/jerseys/real-madrid-home-fan.jpg",
     rating: 5,
     reviewCount: 18,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "fan": {
-        "price": 20000,
-        "description": "The classic white of the Bernabeu. Fan edition of Real Madrid's home kit — clean, premium design with the golden badge."
-      }
+      fan: { price: 20000, description: "Fan version of Real Madrid home kit for everyday supporters." },
+      player: { price: 25000, description: "Player edition Real Madrid home kit with slim athletic fit and breathable performance fabric." }
     }
   },
   {
@@ -95,17 +82,15 @@ const PRODUCTS = [
     category: "club",
     kit: "home",
     price: 20000,
-    description: "The famous Chelsea blue. Fan edition home kit with the iconic lion crest. Comfortable polyester blend, great for the stadium or the street.",
+    description: "Chelsea's iconic blue home kit representing Stamford Bridge heritage and club identity.",
     image: "images/jerseys/chelsea-home-fan.jpg",
     rating: 4,
     reviewCount: 9,
     sizes: ["S","M","L","XL","XXL"],
     featured: true,
     versions: {
-      "fan": {
-        "price": 20000,
-        "description": "The famous Chelsea blue. Fan edition home kit with the iconic lion crest. Comfortable polyester blend, great for the stadium or the street."
-      }
+      fan: { price: 20000, description: "Chelsea fan home jersey designed for comfort and everyday wear." },
+      player: { price: 25000, description: "Chelsea player edition home kit with elite match-ready materials." }
     }
   },
   {
@@ -114,18 +99,16 @@ const PRODUCTS = [
     club: "Chelsea",
     category: "club",
     kit: "away",
-    price: 25000,
-    description: "Chelsea's Player edition away kit. Authentic match-spec jersey in a striking colourway — the same quality as what the squad wears at Stamford Bridge.",
+    price: 20000,
+    description: "Chelsea away kit with a bold modern design built for away matches and supporter style.",
     image: "images/jerseys/chelsea-away-player.jpg",
     rating: 5,
     reviewCount: 5,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "player": {
-        "price": 25000,
-        "description": "Chelsea's Player edition away kit. Authentic match-spec jersey in a striking colourway — the same quality as what the squad wears at Stamford Bridge."
-      }
+      fan: { price: 20000, description: "Chelsea fan away jersey for supporters." },
+      player: { price: 25000, description: "Chelsea player edition away kit built for performance and speed." }
     }
   },
   {
@@ -134,167 +117,97 @@ const PRODUCTS = [
     club: "Barcelona",
     category: "club",
     kit: "home",
-    price: 25000,
-    description: "The famous Blaugrana stripes. Player edition of Barca's iconic home kit — elite-grade fabric, precision stitching, and the Catalan crest worn with pride.",
+    price: 20000,
+    description: "Barcelona home kit featuring the iconic Blaugrana stripes, symbolizing Catalan pride and football heritage.",
     image: "images/jerseys/barcelona-home-player.jpg",
     rating: 5,
     reviewCount: 31,
     sizes: ["S","M","L","XL","XXL"],
     featured: true,
     versions: {
-      "player": {
-        "price": 25000,
-        "description": "The famous Blaugrana stripes. Player edition of Barca's iconic home kit — elite-grade fabric, precision stitching, and the Catalan crest worn with pride."
-      }
+      fan: { price: 20000, description: "Barcelona fan home jersey for supporters." },
+      player: { price: 25000, description: "Barcelona player edition home kit with premium match-spec materials." }
     }
   },
   {
     id: 8,
-    name: "Barcelona Away Jersey",
-    club: "Barcelona",
-    category: "club",
-    kit: "away",
-    price: 20000,
-    description: "Barca's away colours in Fan edition. Clean design with the full Barcelona crest and sponsor badge. Stand out from the crowd.",
-    image: "images/jerseys/barcelona-away-fan.jpg",
-    rating: 4,
-    reviewCount: 7,
-    sizes: ["S","M","L","XL","XXL"],
-    featured: false,
-    versions: {
-      "fan": {
-        "price": 20000,
-        "description": "Barca's away colours in Fan edition. Clean design with the full Barcelona crest and sponsor badge. Stand out from the crowd."
-      }
-    }
-  },
-  {
-    id: 9,
-    name: "PSG Away Jersey",
-    club: "PSG",
-    category: "club",
-    kit: "away",
-    price: 20000,
-    description: "Paris Saint-Germain's away strip. Fan edition in a clean, modern colourway. Features the Eiffel Tower crest and all-over print detail.",
-    image: "images/jerseys/psg-away-fan.jpg",
-    rating: 5,
-    reviewCount: 12,
-    sizes: ["S","M","L","XL","XXL"],
-    featured: false,
-    versions: {
-      "fan": {
-        "price": 20000,
-        "description": "Paris Saint-Germain's away strip. Fan edition in a clean, modern colourway. Features the Eiffel Tower crest and all-over print detail."
-      }
-    }
-  },
-  {
-    id: 10,
-    name: "PSG Home Jersey",
-    club: "PSG",
-    category: "club",
-    kit: "home",
-    price: 25000,
-    description: "The deep navy of the Parc des Princes. Player edition home kit — the authentic match jersey with the iconic red and blue sash design.",
-    image: "images/jerseys/psg-home-player.jpg",
-    rating: 5,
-    reviewCount: 10,
-    sizes: ["S","M","L","XL","XXL"],
-    featured: false,
-    versions: {
-      "player": {
-        "price": 25000,
-        "description": "The deep navy of the Parc des Princes. Player edition home kit — the authentic match jersey with the iconic red and blue sash design."
-      }
-    }
-  },
-  {
-    id: 11,
     name: "Arsenal Away Jersey",
     club: "Arsenal",
     category: "club",
     kit: "away",
     price: 20000,
-    description: "The Gunners' away kit in Fan edition. Arsenal's clean away design with the cannon crest. Great quality at an accessible price.",
+    description: "The Gunners' away kit in a clean design with the iconic cannon crest. Great quality at an accessible price.",
     image: "images/jerseys/arsenal-away-fan.jpg",
     rating: 4,
     reviewCount: 4,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "fan": {
-        "price": 20000,
-        "description": "The Gunners' away kit in Fan edition. Arsenal's clean away design with the cannon crest. Great quality at an accessible price."
-      }
+      fan: { price: 20000, description: "Arsenal fan away jersey — clean design with the cannon crest at an accessible price." },
+      player: { price: 25000, description: "Arsenal player edition away kit with performance-grade fabric used at the Emirates Stadium." }
     }
   },
   {
-    id: 12,
+    id: 9,
     name: "Arsenal Home Jersey",
     club: "Arsenal",
     category: "club",
     kit: "home",
-    price: 24500,
-    description: "Emirates red. Arsenal's Player edition home kit — the same spec worn by the squad at the Emirates Stadium.",
+    price: 20000,
+    description: "Emirates red. Arsenal's home kit representing the spirit and tradition of the Gunners.",
     image: "images/jerseys/arsenal-home-player.jpg",
     rating: 5,
     reviewCount: 6,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "player": {
-        "price": 24500,
-        "description": "Emirates red. Arsenal's Player edition home kit — the same spec worn by the squad at the Emirates Stadium."
-      }
+      fan: { price: 20000, description: "Arsenal fan home jersey in iconic Emirates red. Comfortable for matchday and everyday wear." },
+      player: { price: 25000, description: "Arsenal player edition home kit — the same spec worn by the squad at the Emirates Stadium." }
     }
   },
   {
-    id: 13,
+    id: 10,
     name: "Liverpool Home Jersey",
     club: "Liverpool",
     category: "club",
     kit: "home",
     price: 20000,
-    description: "All red kit, White Nike swoosh and Standard Chartered Sponsor. LFC crest on the left, clean, simple, iconic Anfield look.",
+    description: "All red kit with white Nike swoosh and Standard Chartered sponsor. LFC crest on the left — clean, simple, iconic Anfield look.",
     image: "images/jerseys/liverpool-home-fan.jpg",
     rating: 5,
     reviewCount: 7,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "fan": {
-        "price": 20000,
-        "description": "All red kit, White Nike swoosh and Standard Chartered Sponsor. LFC crest on the left, clean, simple, iconic Anfield look."
-      }
+      fan: { price: 20000, description: "All red Liverpool fan home jersey. White Nike swoosh and Standard Chartered sponsor. Iconic Anfield look." },
+      player: { price: 25000, description: "Liverpool player edition home kit with elite match-spec fabric and tailored athletic fit." }
     }
   },
   {
-    id: 14,
+    id: 11,
     name: "Liverpool Away Jersey",
     club: "Liverpool",
     category: "club",
     kit: "away",
-    price: 25000,
-    description: "White base with teal and lime green accents. LFC crest, clean, modern contrast to the all-red home.",
+    price: 20000,
+    description: "White base with teal and lime green accents. LFC crest — clean, modern contrast to the all-red home.",
     image: "images/jerseys/liverpool-away-player.jpg",
     rating: 5,
     reviewCount: 8,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "player": {
-        "price": 25000,
-        "description": "White base with teal and lime green accents. LFC crest, clean, modern contrast to the all-red home."
-      }
+      fan: { price: 20000, description: "Liverpool fan away jersey — white base with teal and lime green accents. A modern contrast to the all-red home." },
+      player: { price: 25000, description: "Liverpool player edition away kit. White base with teal and lime green accents. Match-spec performance fabric." }
     }
   },
   {
-    id: 15,
+    id: 12,
     name: "Atletico Madrid Away Jersey",
     club: "Atletico Madrid",
     category: "club",
     kit: "away",
-    price: 25000,
+    price: 20000,
     description: "Black base with dark grey/teal geometric pattern. Teal Nike swoosh and Riyadh Air sponsor in white/teal.",
     image: "images/jerseys/athletico-away-player.jpg",
     rating: 5,
@@ -302,352 +215,332 @@ const PRODUCTS = [
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "player": {
-        "price": 25000,
-        "description": "Black base with dark grey/teal geometric pattern. Teal Nike swoosh and Riyadh Air sponsor in white/teal."
-      }
+      fan: { price: 20000, description: "Atletico Madrid fan away jersey — black base with dark grey/teal geometric pattern." },
+      player: { price: 25000, description: "Atletico Madrid player edition away kit. Black base with teal geometric pattern and match-spec performance fabric." }
     }
   },
   {
-    id: 16,
+    id: 13,
     name: "Atletico Madrid Home Jersey",
     club: "Atletico Madrid",
     category: "club",
     kit: "home",
     price: 20000,
-    description: "Red and white vertical stripes all over. Blue Nike swoosh and Nike logo. Main sponsor Riyadh Air in white across chest. Blue trim on collar and sleeves.",
+    description: "Red and white vertical stripes all over. Blue Nike swoosh. Main sponsor Riyadh Air in white across chest. Blue trim on collar and sleeves.",
     image: "images/jerseys/athletico-home-fan.jpg",
     rating: 5,
     reviewCount: 5,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "fan": {
-        "price": 20000,
-        "description": "Red and white vertical stripes all over. Blue Nike swoosh and Nike logo. Main sponsor Riyadh Air in white across chest. Blue trim on collar and sleeves."
-      }
+      fan: { price: 20000, description: "Atletico Madrid fan home jersey — red and white vertical stripes, blue Nike swoosh and Riyadh Air sponsor." },
+      player: { price: 25000, description: "Atletico Madrid player edition home kit. Iconic red and white stripes with match-spec performance fabric." }
     }
   },
   {
-    id: 17,
+    id: 14,
     name: "Manchester City Home Jersey",
     club: "Manchester City",
     category: "club",
     kit: "home",
     price: 20000,
-    description: "Sky blue shirt all over. Navy blue Nike swoosh + Etihad Airways Sponsor in white. Navy trim on collar + sleeves.",
+    description: "Sky blue shirt all over. Navy blue Nike swoosh + Etihad Airways sponsor in white. Navy trim on collar and sleeves.",
     image: "images/jerseys/Manchestercity-home-fan.jpg",
     rating: 5,
     reviewCount: 20,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "fan": {
-        "price": 20000,
-        "description": "Sky blue shirt all over. Navy blue Nike swoosh + Etihad Airways Sponsor in white. Navy trim on collar + sleeves."
-      }
+      fan: { price: 20000, description: "Manchester City fan home jersey — sky blue with navy Nike swoosh and Etihad Airways sponsor." },
+      player: { price: 25000, description: "Manchester City player edition home kit. Sky blue with elite performance fabric used at the Etihad Stadium." }
     }
   },
   {
-    id: 18,
+    id: 15,
     name: "Manchester City Away Jersey",
     club: "Manchester City",
     category: "club",
     kit: "away",
-    price: 25000,
-    description: "Black base with Abstract light-blue + silver geometricpattern across the body. Silver Nike Swoosh + Ethihad sponsor in navy.",
+    price: 20000,
+    description: "Black base with abstract light-blue and silver geometric pattern across the body. Silver Nike swoosh and Etihad sponsor in navy.",
     image: "images/jerseys/manchestercity-away-player.jpg",
     rating: 5,
     reviewCount: 22,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "player": {
-        "price": 25000,
-        "description": "Black base with Abstract light-blue + silver geometricpattern across the body. Silver Nike Swoosh + Ethihad sponsor in navy."
-      }
+      fan: { price: 20000, description: "Manchester City fan away jersey — black base with light-blue and silver geometric pattern." },
+      player: { price: 25000, description: "Manchester City player edition away kit. Black base with abstract geometric design and match-spec performance fabric." }
     }
   },
   {
-    id: 19,
+    id: 16,
     name: "Nigeria Home Jersey",
     club: "Nigeria",
     category: "national",
     kit: "home",
     price: 20000,
-    description: "The Super Eagles' iconic green-and-white home kit. Fan edition — one of the most celebrated national team jerseys in Africa. Represent Nigeria with pride.",
+    description: "The Super Eagles' iconic green-and-white home kit. One of the most celebrated national team jerseys in Africa. Represent Nigeria with pride.",
     image: "images/jerseys/nigeria-home-fan.jpg",
     rating: 5,
     reviewCount: 41,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "fan": {
-        "price": 20000,
-        "description": "The Super Eagles' iconic green-and-white home kit. Fan edition — one of the most celebrated national team jerseys in Africa. Represent Nigeria with pride."
-      }
+      fan: { price: 20000, description: "Nigeria Super Eagles fan home jersey — iconic green and white design. Represent with pride." },
+      player: { price: 25000, description: "Nigeria Super Eagles player edition home kit. Premium match-spec fabric worn by the national squad." }
     }
   },
   {
-    id: 20,
+    id: 17,
     name: "Nigeria Away Jersey",
     club: "Nigeria",
     category: "national",
     kit: "away",
     price: 20000,
-    description: "The Super Eagles away strip. Fan edition in a bold colourway. Nigeria's away kit is always a fan favourite — don't miss out.",
+    description: "The Super Eagles away strip in a bold colourway. Nigeria's away kit is always a fan favourite — don't miss out.",
     image: "images/jerseys/nigeria-away-fan.jpg",
     rating: 5,
     reviewCount: 28,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "fan": {
-        "price": 20000,
-        "description": "The Super Eagles away strip. Fan edition in a bold colourway. Nigeria's away kit is always a fan favourite — don't miss out."
-      }
+      fan: { price: 20000, description: "Nigeria Super Eagles fan away jersey in a bold colourway. Always a fan favourite." },
+      player: { price: 25000, description: "Nigeria Super Eagles player edition away kit. Bold colourway with match-spec performance fabric." }
     }
   },
   {
-    id: 21,
+    id: 18,
     name: "Brazil Home Jersey",
     club: "Brazil",
     category: "national",
     kit: "home",
     price: 20000,
-    description: "The iconic Seleção yellow. Brazil's home kit in Fan edition — the most celebrated football shirt in the world, now in your wardrobe.",
+    description: "The iconic Seleção yellow. Brazil's home kit — the most celebrated football shirt in the world, now in your wardrobe.",
     image: "images/jerseys/brazil-home-fan.jpg",
     rating: 5,
     reviewCount: 35,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      "fan": {
-        "price": 20000,
-        "description": "The iconic Seleção yellow. Brazil's home kit in Fan edition — the most celebrated football shirt in the world, now in your wardrobe."
-      },
-      "player": {
-        "price": 25000,
-        "description": "The iconic Seleção yellow. Brazil's Player edition home kit — premium match-spec fabric worn by the national squad."
-      }
+      fan: { price: 20000, description: "Brazil Seleção fan home jersey — the iconic yellow shirt. The most celebrated football shirt in the world." },
+      player: { price: 25000, description: "Brazil Seleção player edition home kit. Iconic yellow with premium match-spec fabric worn by the national squad." }
     }
   },
-
-  /* ─── NATIONAL TEAMS (IDs 22–31) ─── */
   {
-    id: 22,
+    id: 19,
     name: "France Home Jersey",
     club: "France",
     category: "national",
     kit: "home",
     price: 20000,
-    description: "Les Bleus' iconic home kit. Fan edition featuring France's classic navy design and national crest. Perfect for World Cup and Euro supporters.",
-    image: null,
+    description: "Les Bleus' iconic home kit featuring France's classic navy design and national crest. Perfect for World Cup and Euro supporters.",
+    image: "images/jerseys/france-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 15,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Les Bleus' iconic home kit. Fan edition featuring France's classic navy design and national crest. Perfect for World Cup and Euro supporters."
-      },
-      player: {
-        price: 25000,
-        description: "France Player edition jersey. Premium match-spec fabric worn by the national squad."
-      }
+      fan: { price: 20000, description: "France Les Bleus fan home jersey — classic navy design with national crest. Perfect for tournament support." },
+      player: { price: 25000, description: "France Les Bleus player edition home kit. Premium match-spec fabric worn by the national squad." }
     }
   },
   {
-    id: 23,
+    id: 20,
     name: "England Home Jersey",
     club: "England",
     category: "national",
     kit: "home",
     price: 20000,
-    description: "The Three Lions' home kit. Fan edition in classic white with the iconic English crest.",
-    image: null,
+    description: "The Three Lions' home kit in classic white with the iconic English crest.",
+    image: "images/jerseys/england-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 23,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "The Three Lions' home kit. Fan edition in classic white with the iconic English crest."
-      },
-      player: {
-        price: 25000,
-        description: "England Player edition. Authentic match jersey worn by the Three Lions."
-      }
+      fan: { price: 20000, description: "England Three Lions fan home jersey — classic white with the iconic English crest." },
+      player: { price: 25000, description: "England Three Lions player edition home kit. Authentic match jersey worn by the national squad." }
     }
   },
   {
-    id: 24,
+    id: 21,
     name: "Spain Home Jersey",
     club: "Spain",
     category: "national",
     kit: "home",
     price: 20000,
-    description: "La Roja's iconic red home kit. Fan edition with the Spanish national crest and bold design.",
-    image: null,
+    description: "La Roja's iconic red home kit with the Spanish national crest and bold design.",
+    image: "images/jerseys/spain-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 21,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "La Roja's iconic red home kit. Fan edition with the Spanish national crest and bold design."
-      },
-      player: {
-        price: 25000,
-        description: "Spain Player edition. Premium match jersey for the Spanish national team."
-      }
+      fan: { price: 20000, description: "Spain La Roja fan home jersey — iconic red design with the Spanish national crest." },
+      player: { price: 25000, description: "Spain La Roja player edition home kit. Premium match jersey for the national team." }
     }
   },
   {
-    id: 25,
+    id: 22,
     name: "Portugal Home Jersey",
     club: "Portugal",
     category: "national",
     kit: "home",
     price: 20000,
     description: "Portugal's home kit in Fan edition. Red shirt with the iconic Portuguese cross and national crest.",
-    image: null,
+    image: "images/jerseys/portugal-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 19,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Portugal's home kit in Fan edition. Red shirt with the iconic Portuguese cross and national crest."
-      },
-      player: {
-        price: 25000,
-        description: "Portugal Player edition. Authentic match jersey for the Portuguese squad."
-      }
+      fan: { price: 20000, description: "Portugal fan home jersey — red shirt with the iconic Portuguese cross and national crest." },
+      player: { price: 25000, description: "Portugal player edition home kit. Authentic match jersey for the Portuguese squad." }
     }
   },
   {
-    id: 26,
+    id: 23,
     name: "Argentina Home Jersey",
     club: "Argentina",
     category: "national",
     kit: "home",
     price: 20000,
-    description: "La Selección's iconic white and blue stripes. Fan edition with the Argentine crest and national symbol.",
-    image: null,
+    description: "La Selección's iconic white and blue stripes with the Argentine crest and national symbol.",
+    image: "images/jerseys/argentina-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 23,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "La Selección's iconic white and blue stripes. Fan edition with the Argentine crest and national symbol."
-      },
-      player: {
-        price: 25000,
-        description: "Argentina Player edition. Premium match jersey of the national team."
-      }
+      fan: { price: 20000, description: "Argentina La Selección fan home jersey — iconic white and blue stripes with the Argentine crest." },
+      player: { price: 25000, description: "Argentina La Selección player edition home kit. Premium match jersey of the national team." }
     }
   },
   {
-    id: 27,
+    id: 24,
     name: "Germany Home Jersey",
     club: "Germany",
     category: "national",
     kit: "home",
     price: 20000,
-    description: "Die Mannschaft's classic white home kit. Fan edition with the German national crest.",
-    image: null,
+    description: "Die Mannschaft's classic white home kit with the German national crest.",
+    image: "images/jerseys/german-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 25,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Die Mannschaft's classic white home kit. Fan edition with the German national crest."
-      },
-      player: {
-        price: 25000,
-        description: "Germany Player edition. Premium match jersey for Die Mannschaft."
-      }
+      fan: { price: 20000, description: "Germany Die Mannschaft fan home jersey — classic white with the national crest." },
+      player: { price: 25000, description: "Germany Die Mannschaft player edition home kit. Premium match jersey for the national team." }
     }
   },
   {
-    id: 28,
+    id: 25,
     name: "Croatia Home Jersey",
     club: "Croatia",
     category: "national",
     kit: "home",
     price: 20000,
-    description: "The Fiery Checkers. Croatia's iconic red and white checkered home kit. Fan edition.",
-    image: null,
+    description: "Croatia's iconic red and white checkered home kit. The Fiery Checkers — fan edition.",
+    image: "images/jerseys/croatia-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 22,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "The Fiery Checkers. Croatia's iconic red and white checkered home kit. Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Croatia Player edition. Authentic match jersey of the Croatian squad."
-      }
+      fan: { price: 20000, description: "Croatia fan home jersey — iconic red and white checkered design. The Fiery Checkers." },
+      player: { price: 25000, description: "Croatia player edition home kit. Authentic match jersey of the Croatian squad." }
     }
   },
   {
-    id: 29,
+    id: 26,
+    name: "Croatia Away Jersey",
+    club: "Croatia",
+    category: "national",
+    kit: "away",
+    price: 20000,
+    description: "Croatia's away kit in a clean modern design. Fan edition.",
+    image: "images/jerseys/croatia-away-player.jpg",
+    rating: 5,
+    reviewCount: 22,
+    sizes: ["S","M","L","XL","XXL"],
+    featured: false,
+    versions: {
+      fan: { price: 20000, description: "Croatia fan away jersey in a clean modern design." },
+      player: { price: 25000, description: "Croatia player edition away kit. Authentic match jersey of the Croatian squad." }
+    }
+  },
+  {
+    id: 27,
     name: "Netherlands Home Jersey",
     club: "Netherlands",
     category: "national",
     kit: "home",
     price: 20000,
-    description: "Oranje's iconic orange home kit. Fan edition with the Dutch national crest.",
-    image: null,
+    description: "Oranje's iconic orange home kit with the Dutch national crest.",
+    image: "images/jerseys/netherlands-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 18,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Oranje's iconic orange home kit. Fan edition with the Dutch national crest."
-      },
-      player: {
-        price: 25000,
-        description: "Netherlands Player edition. Premium match jersey for Oranje."
-      }
+      fan: { price: 20000, description: "Netherlands Oranje fan home jersey — iconic orange with the Dutch national crest." },
+      player: { price: 25000, description: "Netherlands Oranje player edition home kit. Premium match jersey for the national team." }
     }
   },
   {
-    id: 30,
+    id: 28,
+    name: "Netherlands Away Jersey",
+    club: "Netherlands",
+    category: "national",
+    kit: "away",
+    price: 20000,
+    description: "Netherlands away kit in a modern clean design. Fan edition.",
+    image: "images/jerseys/netherlands-away-player.jpg",
+    rating: 5,
+    reviewCount: 18,
+    sizes: ["S","M","L","XL","XXL"],
+    featured: false,
+    versions: {
+      fan: { price: 20000, description: "Netherlands Oranje fan away jersey in a modern clean design." },
+      player: { price: 25000, description: "Netherlands Oranje player edition away kit. Premium match jersey for the national team." }
+    }
+  },
+  {
+    id: 29,
     name: "Morocco Home Jersey",
     club: "Morocco",
     category: "national",
     kit: "home",
     price: 20000,
-    description: "Atlas Lions' red home kit. Fan edition with the Moroccan national crest and star.",
-    image: null,
+    description: "Atlas Lions' red home kit with the Moroccan national crest and star.",
+    image: "images/jerseys/morocco-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 28,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Atlas Lions' red home kit. Fan edition with the Moroccan national crest and star."
-      },
-      player: {
-        price: 25000,
-        description: "Morocco Player edition. Authentic match jersey of the Atlas Lions."
-      }
+      fan: { price: 20000, description: "Morocco Atlas Lions fan home jersey — red kit with the national crest and star." },
+      player: { price: 25000, description: "Morocco Atlas Lions player edition home kit. Authentic match jersey of the national squad." }
+    }
+  },
+  {
+    id: 30,
+    name: "Morocco Away Jersey",
+    club: "Morocco",
+    category: "national",
+    kit: "away",
+    price: 20000,
+    description: "Morocco Atlas Lions away kit in a bold modern design. Fan edition.",
+    image: "images/jerseys/morocco-away-player.jpg",
+    rating: 5,
+    reviewCount: 28,
+    sizes: ["S","M","L","XL","XXL"],
+    featured: false,
+    versions: {
+      fan: { price: 20000, description: "Morocco Atlas Lions fan away jersey in a bold modern design." },
+      player: { price: 25000, description: "Morocco Atlas Lions player edition away kit. Premium match jersey for the national squad." }
     }
   },
   {
@@ -657,71 +550,51 @@ const PRODUCTS = [
     category: "national",
     kit: "home",
     price: 20000,
-    description: "The Red Devils' iconic home kit. Fan edition with the Belgian national crest.",
-    image: null,
+    description: "The Red Devils' iconic home kit with the Belgian national crest.",
+    image: "images/jerseys/belgium-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 22,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "The Red Devils' iconic home kit. Fan edition with the Belgian national crest."
-      },
-      player: {
-        price: 25000,
-        description: "Belgium Player edition. Premium match jersey for the Red Devils."
-      }
+      fan: { price: 20000, description: "Belgium Red Devils fan home jersey — iconic kit with the Belgian national crest." },
+      player: { price: 25000, description: "Belgium Red Devils player edition home kit. Premium match jersey for the national team." }
     }
   },
-
-  /* ─── CLUB TEAMS (IDs 32–55) ─── */
   {
     id: 32,
+    name: "Belgium Away Jersey",
+    club: "Belgium",
+    category: "national",
+    kit: "away",
+    price: 20000,
+    description: "The Red Devils' away kit in a clean modern design. Fan edition.",
+    image: "images/jerseys/belgium-away-player.jpg",
+    rating: 5,
+    reviewCount: 22,
+    sizes: ["S","M","L","XL","XXL"],
+    featured: false,
+    versions: {
+      fan: { price: 20000, description: "Belgium Red Devils fan away jersey in a clean modern design." },
+      player: { price: 25000, description: "Belgium Red Devils player edition away kit. Premium match jersey for the national team." }
+    }
+  },
+  {
+    id: 33,
     name: "Aston Villa Home Jersey",
     club: "Aston Villa",
     category: "club",
     kit: "home",
     price: 20000,
-    description: "The Claret & Blue. Aston Villa's iconic home kit in Fan edition.",
-    image: null,
+    description: "The Claret and Blue. Aston Villa's iconic home kit in fan edition.",
+    image: "images/jerseys/astonvilla-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 21,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "The Claret & Blue. Aston Villa's iconic home kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Aston Villa Player edition home kit. Premium match-spec jersey."
-      }
-    }
-  },
-  {
-    id: 33,
-    name: "Aston Villa Away Jersey",
-    club: "Aston Villa",
-    category: "club",
-    kit: "away",
-    price: 20000,
-    description: "Aston Villa's away kit in Fan edition.",
-    image: null,
-    rating: 5,
-    reviewCount: 0,
-    sizes: ["S","M","L","XL","XXL"],
-    featured: false,
-    versions: {
-      fan: {
-        price: 20000,
-        description: "Aston Villa's away kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Aston Villa Player edition away kit."
-      }
+      fan: { price: 20000, description: "Aston Villa fan home jersey — iconic claret and blue design." },
+      player: { price: 25000, description: "Aston Villa player edition home kit. Premium match-spec jersey." }
     }
   },
   {
@@ -732,529 +605,361 @@ const PRODUCTS = [
     kit: "home",
     price: 20000,
     description: "The Pride of Saudi Arabia. Al Nassr's iconic gold and black home kit. Fan edition.",
-    image: null,
+    image: "images/jerseys/alnasr-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 20,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "The Pride of Saudi Arabia. Al Nassr's iconic gold and black home kit. Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Al Nassr Player edition home kit. Premium match jersey."
-      }
+      fan: { price: 20000, description: "Al Nassr fan home jersey — iconic gold and black design. The Pride of Saudi Arabia." },
+      player: { price: 25000, description: "Al Nassr player edition home kit. Premium match jersey." }
     }
   },
   {
     id: 35,
-    name: "Al Nassr Away Jersey",
-    club: "Al Nassr",
-    category: "club",
-    kit: "away",
-    price: 20000,
-    description: "Al Nassr's away kit in Fan edition.",
-    image: null,
-    rating: 5,
-    reviewCount: 0,
-    sizes: ["S","M","L","XL","XXL"],
-    featured: false,
-    versions: {
-      fan: {
-        price: 20000,
-        description: "Al Nassr's away kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Al Nassr Player edition away kit."
-      }
-    }
-  },
-  {
-    id: 36,
     name: "Galatasaray Home Jersey",
     club: "Galatasaray",
     category: "club",
     kit: "home",
     price: 20000,
     description: "The Lions of Istanbul. Galatasaray's iconic red and yellow striped home kit. Fan edition.",
-    image: null,
+    image: "images/jerseys/galatasaray-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 17,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "The Lions of Istanbul. Galatasaray's iconic red and yellow striped home kit. Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Galatasaray Player edition home kit. Premium match jersey."
-      }
+      fan: { price: 20000, description: "Galatasaray fan home jersey — iconic red and yellow stripes. The Lions of Istanbul." },
+      player: { price: 25000, description: "Galatasaray player edition home kit. Premium match jersey." }
     }
   },
   {
-    id: 37,
+    id: 36,
     name: "Galatasaray Away Jersey",
     club: "Galatasaray",
     category: "club",
     kit: "away",
     price: 20000,
-    description: "Galatasaray's away kit in Fan edition.",
-    image: null,
+    description: "Galatasaray's away kit in fan edition.",
+    image: "images/jerseys/galatasaray-away-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 21,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Galatasaray's away kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Galatasaray Player edition away kit."
-      }
+      fan: { price: 20000, description: "Galatasaray fan away jersey in a clean modern design." },
+      player: { price: 25000, description: "Galatasaray player edition away kit. Premium match jersey." }
     }
   },
   {
-    id: 38,
+    id: 37,
     name: "Inter Milan Home Jersey",
     club: "Inter Milan",
     category: "club",
     kit: "home",
     price: 20000,
-    description: "The Nerazzurri's iconic blue and black stripes. Inter Milan home kit in Fan edition.",
-    image: null,
+    description: "The Nerazzurri's iconic blue and black stripes. Inter Milan home kit in fan edition.",
+    image: "images/jerseys/intermillan-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 29,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "The Nerazzurri's iconic blue and black stripes. Inter Milan home kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Inter Milan Player edition home kit. Premium match jersey."
-      }
+      fan: { price: 20000, description: "Inter Milan fan home jersey — iconic blue and black Nerazzurri stripes." },
+      player: { price: 25000, description: "Inter Milan player edition home kit. Premium match jersey." }
     }
   },
   {
-    id: 39,
+    id: 38,
     name: "Inter Milan Away Jersey",
     club: "Inter Milan",
     category: "club",
     kit: "away",
     price: 20000,
-    description: "Inter Milan's away kit in Fan edition.",
-    image: null,
+    description: "Inter Milan's away kit in fan edition.",
+    image: "images/jerseys/intermillan-away-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 27,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Inter Milan's away kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Inter Milan Player edition away kit."
-      }
+      fan: { price: 20000, description: "Inter Milan fan away jersey in a clean modern design." },
+      player: { price: 25000, description: "Inter Milan player edition away kit. Premium match jersey." }
     }
   },
   {
-    id: 40,
+    id: 39,
     name: "Inter Miami Home Jersey",
     club: "Inter Miami",
     category: "club",
     kit: "home",
     price: 20000,
     description: "Inter Miami's iconic pink and black home kit. Fan edition.",
-    image: null,
+    image: "images/jerseys/InterMiami-Home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 26,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Inter Miami's iconic pink and black home kit. Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Inter Miami Player edition home kit. Premium match jersey."
-      }
+      fan: { price: 20000, description: "Inter Miami fan home jersey — iconic pink and black design." },
+      player: { price: 25000, description: "Inter Miami player edition home kit. Premium match jersey." }
     }
   },
   {
-    id: 41,
+    id: 40,
     name: "Inter Miami Away Jersey",
     club: "Inter Miami",
     category: "club",
     kit: "away",
     price: 20000,
-    description: "Inter Miami's away kit in Fan edition.",
-    image: null,
+    description: "Inter Miami's away kit in fan edition.",
+    image: "images/jerseys/InterMiami-away-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 20,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Inter Miami's away kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Inter Miami Player edition away kit."
-      }
+      fan: { price: 20000, description: "Inter Miami fan away jersey in a clean modern design." },
+      player: { price: 25000, description: "Inter Miami player edition away kit. Premium match jersey." }
     }
   },
   {
-    id: 42,
+    id: 41,
     name: "AC Milan Home Jersey",
     club: "AC Milan",
     category: "club",
     kit: "home",
     price: 20000,
-    description: "The Rossoneri's iconic red and black stripes. AC Milan home kit in Fan edition.",
-    image: null,
+    description: "The Rossoneri's iconic red and black stripes. AC Milan home kit in fan edition.",
+    image: "images/jerseys/acmilan-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 21,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "The Rossoneri's iconic red and black stripes. AC Milan home kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "AC Milan Player edition home kit. Premium match jersey."
-      }
+      fan: { price: 20000, description: "AC Milan fan home jersey — iconic red and black Rossoneri stripes." },
+      player: { price: 25000, description: "AC Milan player edition home kit. Premium match jersey." }
     }
   },
   {
-    id: 43,
+    id: 42,
     name: "AC Milan Away Jersey",
     club: "AC Milan",
     category: "club",
     kit: "away",
     price: 20000,
-    description: "AC Milan's away kit in Fan edition.",
-    image: null,
+    description: "AC Milan's away kit in fan edition.",
+    image: "images/jerseys/acmilan-away-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 21,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "AC Milan's away kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "AC Milan Player edition away kit."
-      }
+      fan: { price: 20000, description: "AC Milan fan away jersey in a clean modern design." },
+      player: { price: 25000, description: "AC Milan player edition away kit. Premium match jersey." }
     }
   },
   {
-    id: 44,
+    id: 43,
     name: "Napoli Home Jersey",
     club: "Napoli",
     category: "club",
     kit: "home",
     price: 20000,
     description: "SSC Napoli's iconic sky blue home kit. Fan edition.",
-    image: null,
+    image: "images/jerseys/napoli-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 24,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "SSC Napoli's iconic sky blue home kit. Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Napoli Player edition home kit. Premium match jersey."
-      }
+      fan: { price: 20000, description: "Napoli fan home jersey — iconic sky blue design." },
+      player: { price: 25000, description: "Napoli player edition home kit. Premium match jersey." }
     }
   },
   {
-    id: 45,
-    name: "Napoli Away Jersey",
-    club: "Napoli",
-    category: "club",
-    kit: "away",
-    price: 20000,
-    description: "Napoli's away kit in Fan edition.",
-    image: null,
-    rating: 5,
-    reviewCount: 0,
-    sizes: ["S","M","L","XL","XXL"],
-    featured: false,
-    versions: {
-      fan: {
-        price: 20000,
-        description: "Napoli's away kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Napoli Player edition away kit."
-      }
-    }
-  },
-  {
-    id: 46,
+    id: 44,
     name: "Roma Home Jersey",
     club: "Roma",
     category: "club",
     kit: "home",
     price: 20000,
     description: "The Giallorossi's iconic red and yellow home kit. Fan edition.",
-    image: null,
+    image: "images/jerseys/roma-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 20,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "The Giallorossi's iconic red and yellow home kit. Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Roma Player edition home kit. Premium match jersey."
-      }
+      fan: { price: 20000, description: "Roma fan home jersey — iconic red and yellow Giallorossi design." },
+      player: { price: 25000, description: "Roma player edition home kit. Premium match jersey." }
     }
   },
   {
-    id: 47,
-    name: "Roma Away Jersey",
-    club: "Roma",
-    category: "club",
-    kit: "away",
-    price: 20000,
-    description: "Roma's away kit in Fan edition.",
-    image: null,
-    rating: 5,
-    reviewCount: 0,
-    sizes: ["S","M","L","XL","XXL"],
-    featured: false,
-    versions: {
-      fan: {
-        price: 20000,
-        description: "Roma's away kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Roma Player edition away kit."
-      }
-    }
-  },
-  {
-    id: 48,
+    id: 45,
     name: "Bayer Leverkusen Home Jersey",
     club: "Bayer Leverkusen",
     category: "club",
     kit: "home",
     price: 20000,
     description: "Bayer Leverkusen's iconic red and black home kit. Fan edition.",
-    image: null,
+    image: "images/jerseys/Leverkusen-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 20,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Bayer Leverkusen's iconic red and black home kit. Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Bayer Leverkusen Player edition home kit. Premium match jersey."
-      }
+      fan: { price: 20000, description: "Bayer Leverkusen fan home jersey — iconic red and black design." },
+      player: { price: 25000, description: "Bayer Leverkusen player edition home kit. Premium match jersey." }
     }
   },
   {
-    id: 49,
+    id: 46,
     name: "Bayer Leverkusen Away Jersey",
     club: "Bayer Leverkusen",
     category: "club",
     kit: "away",
     price: 20000,
-    description: "Bayer Leverkusen's away kit in Fan edition.",
-    image: null,
+    description: "Bayer Leverkusen's away kit in fan edition.",
+    image: "images/jerseys/Leverkusen-away-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 20,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Bayer Leverkusen's away kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Bayer Leverkusen Player edition away kit."
-      }
+      fan: { price: 20000, description: "Bayer Leverkusen fan away jersey in a clean modern design." },
+      player: { price: 25000, description: "Bayer Leverkusen player edition away kit. Premium match jersey." }
     }
   },
   {
-    id: 50,
+    id: 47,
     name: "Bayern Munich Home Jersey",
     club: "Bayern Munich",
     category: "club",
     kit: "home",
     price: 20000,
     description: "FC Bayern Munich's iconic red home kit. Fan edition.",
-    image: null,
+    image: "images/jerseys/bayernmunich-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 22,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "FC Bayern Munich's iconic red home kit. Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Bayern Munich Player edition home kit. Premium match jersey."
-      }
+      fan: { price: 20000, description: "Bayern Munich fan home jersey — iconic red design from the Allianz Arena." },
+      player: { price: 25000, description: "Bayern Munich player edition home kit. Premium match jersey." }
     }
   },
   {
-    id: 51,
+    id: 48,
     name: "Bayern Munich Away Jersey",
     club: "Bayern Munich",
     category: "club",
     kit: "away",
     price: 20000,
-    description: "Bayern Munich's away kit in Fan edition.",
-    image: null,
+    description: "Bayern Munich's away kit in fan edition.",
+    image: "images/jerseys/bayernmunich-away-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 20,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Bayern Munich's away kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Bayern Munich Player edition away kit."
-      }
+      fan: { price: 20000, description: "Bayern Munich fan away jersey in a clean modern design." },
+      player: { price: 25000, description: "Bayern Munich player edition away kit. Premium match jersey." }
     }
   },
   {
-    id: 52,
+    id: 49,
     name: "RB Leipzig Home Jersey",
     club: "RB Leipzig",
     category: "club",
     kit: "home",
     price: 20000,
     description: "RB Leipzig's iconic white and red home kit. Fan edition.",
-    image: null,
+    image: "images/jerseys/rbleipzig-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 23,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "RB Leipzig's iconic white and red home kit. Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "RB Leipzig Player edition home kit. Premium match jersey."
-      }
+      fan: { price: 20000, description: "RB Leipzig fan home jersey — iconic white and red design." },
+      player: { price: 25000, description: "RB Leipzig player edition home kit. Premium match jersey." }
     }
   },
   {
-    id: 53,
+    id: 50,
     name: "RB Leipzig Away Jersey",
     club: "RB Leipzig",
     category: "club",
     kit: "away",
     price: 20000,
-    description: "RB Leipzig's away kit in Fan edition.",
-    image: null,
+    description: "RB Leipzig's away kit in fan edition.",
+    image: "images/jerseys/rbleipzig-away-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 20,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "RB Leipzig's away kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "RB Leipzig Player edition away kit."
-      }
+      fan: { price: 20000, description: "RB Leipzig fan away jersey in a clean modern design." },
+      player: { price: 25000, description: "RB Leipzig player edition away kit. Premium match jersey." }
     }
   },
   {
-    id: 54,
+    id: 51,
     name: "Tottenham Hotspur Home Jersey",
     club: "Tottenham Hotspur",
     category: "club",
     kit: "home",
     price: 20000,
-    description: "Spurs' iconic white home kit. Fan edition with the Tottenham crest.",
-    image: null,
+    description: "Spurs' iconic white home kit with the Tottenham crest.",
+    image: "images/jerseys/tottenham-home-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 26,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Spurs' iconic white home kit. Fan edition with the Tottenham crest."
-      },
-      player: {
-        price: 25000,
-        description: "Tottenham Player edition home kit. Premium match jersey."
-      }
+      fan: { price: 20000, description: "Tottenham Hotspur fan home jersey — iconic white design with the Spurs crest." },
+      player: { price: 25000, description: "Tottenham Hotspur player edition home kit. Premium match jersey." }
     }
   },
   {
-    id: 55,
+    id: 52,
     name: "Tottenham Hotspur Away Jersey",
     club: "Tottenham Hotspur",
     category: "club",
     kit: "away",
     price: 20000,
-    description: "Tottenham's away kit in Fan edition.",
-    image: null,
+    description: "Tottenham's away kit in fan edition.",
+    image: "images/jerseys/tottenham-away-player.jpg",
     rating: 5,
-    reviewCount: 0,
+    reviewCount: 30,
     sizes: ["S","M","L","XL","XXL"],
     featured: false,
     versions: {
-      fan: {
-        price: 20000,
-        description: "Tottenham's away kit in Fan edition."
-      },
-      player: {
-        price: 25000,
-        description: "Tottenham Player edition away kit."
-      }
+      fan: { price: 20000, description: "Tottenham Hotspur fan away jersey in a clean modern design." },
+      player: { price: 25000, description: "Tottenham Hotspur player edition away kit. Premium match jersey." }
+    }
+  },
+  {
+    id: 53,
+    name: "Brighton Home Jersey",
+    club: "Brighton",
+    category: "club",
+    kit: "home",
+    price: 20000,
+    description: "Brighton and Hove Albion's iconic blue and white striped home kit. Fan edition.",
+    image: "images/jerseys/Brighton-home-player.jpg",
+    rating: 5,
+    reviewCount: 26,
+    sizes: ["S","M","L","XL","XXL"],
+    featured: false,
+    versions: {
+      fan: { price: 20000, description: "Brighton fan home jersey — iconic blue and white stripes from the Amex Stadium." },
+      player: { price: 25000, description: "Brighton player edition home kit. Premium match jersey." }
     }
   }
 ];
 
-/* ─── Helper: format price as ₦ ─────────────── */
+/* ─── Helpers ─────────────────────────────── */
 function formatPrice(amount) {
   return '₦' + amount.toLocaleString('en-NG');
 }
@@ -1268,7 +973,6 @@ function getClubImage(club, kit) {
   return p ? p.image : null;
 }
 
-/* ─── Helper: render star rating ────────────── */
 function renderStars(rating, reviewCount) {
   const full  = Math.floor(rating);
   const half  = rating % 1 >= 0.5 ? 1 : 0;
@@ -1277,7 +981,6 @@ function renderStars(rating, reviewCount) {
   return `<span class="stars">${stars}</span><span class="stars__count">(${reviewCount})</span>`;
 }
 
-/* ─── Helper: get unique clubs ───────────────── */
 function getUniqueClubs() {
   const clubs = [...new Set(PRODUCTS.map(p => p.club))];
   return clubs.sort();
